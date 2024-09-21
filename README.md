@@ -15,23 +15,23 @@ This project demonstrates how to control an array of 8 LEDs connected to GPIO pi
     - Next, the 2 bits with the value 1 will move to the 2 opposite ends until they are close to the edges of the two sides and disappear
     - The 2 bits with the value 1 will appear from the 2 sides and move back to the center, then repeat
     - Image illustration example:
-        00011000
+       - 00011000
 
-        00100100
+       - 00100100
 
-        01000010
+       - 01000010
 
-        10000001
+       - 10000001
 
-        00000000
+       - 00000000
 
-        10000001
+       - 10000001
 
-        01000010
+       - 01000010
 
-        00100100
+       - 00100100
 
-        00011000
+       - 00011000
 
 ## Hint 
 - After each byte state is changed, write the bits to the corresponding GPIO ports to control the LED to light up (delay at least 1 second to observe the LED state before switching to the new state). Use the GPIO simulation library when running the test on the computer.
