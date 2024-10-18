@@ -28,10 +28,21 @@ patterns = [
 while True:
     if GPIO.input(button_pin) == GPIO.LOW:
         running = not running
-        time.sleep(0.2)
-    
+        print(running)
+        time.sleep(0.5)
+
     if running:
         for pattern in patterns:
             for i in range(8):
                 GPIO.output(led_pins[i], (pattern >> i) & 1)
-            time.sleep(1)
+                
+                # Kiểm tra nút bấm trong từng vòng lặp nhỏ
+                if GPIO.input(button_pin) == GPIO.LOW:
+                    running = not running
+                    print(running)
+                    time.sleep(0.2)  # Thêm thời gian chống dội nút
+                    break  # Thoát khỏi vòng lặp hiện tại ngay lập tức
+
+            if not running:
+                break  # Nếu dừng, thoát khỏi vòng lặp mẫu
+            time.sleep(0.5)  # Độ trễ giữa các mẫu
